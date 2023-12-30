@@ -1,3 +1,9 @@
+<!-- <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?> -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,7 +61,7 @@
   </section>
 
      <!-- Add the following JavaScript within the head section of your HTML file (blog.php) -->
-<!-- <script>
+<script>
     document.addEventListener('DOMContentLoaded', function () {
         var dropdownBtn = document.getElementById('dropdownBtn');
         var dropdownContent = document.querySelector('.dropdown-content');
@@ -81,9 +87,99 @@
 </script>
       
          <!-- Add the following JavaScript within the head section of your HTML file (blog.php) -->
-<!-- <script>
+<script>
     document.addEventListener('DOMContentLoaded', function () {
         var dropdownBtn = document.getElementById('dropdownBtn');
+        var dropdownContent = document.querySelector('.dropdown-content');
+
+        dropdownBtn.addEventListener('click', function () {
+            // Toggle the visibility of the dropdown content
+            dropdownContent.classList.toggle('show');
+        });
+
+        // Close the dropdown if the user clicks outside of it
+        window.addEventListener('click', function (event) {
+            if (!event.target.matches('#dropdownBtn')) {
+                var dropdowns = document.getElementsByClassName('dropdown-content');
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        });
+
+        // Handle click events on dropdown items
+        var dropdownItems = document.querySelectorAll('.dropdown-content a');
+        dropdownItems.forEach(function (item) {
+            item.addEventListener('click', function () {
+                // Add your custom logic here based on the clicked item
+                if (item.textContent === 'Item 1') {
+                    alert('Item 1 clicked!');  // Example: Show an alert
+                    // Add more actions as needed
+                }
+
+                // Close the dropdown
+                dropdownContent.classList.remove('show');
+            });
+        });
+    });
+</script>
+      <!-- Add the following JavaScript within the head section of your HTML file (blog.php) -->
+
+
+<!-- Add the following JavaScript within the head section of your HTML file (blog.php) -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var dropdownBtn = document.getElementById('dropdownBtn');
+        var dropdownContent = document.querySelector('.dropdown-content');
+
+        dropdownBtn.addEventListener('click', function () {
+            // Toggle the visibility of the dropdown content
+            dropdownContent.classList.toggle('show');
+        });
+
+        // Close the dropdown if the user clicks outside of it
+        window.addEventListener('click', function (event) {
+            if (!event.target.matches('#dropdownBtn')) {
+                var dropdowns = document.getElementsByClassName('dropdown-content');
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        });
+
+        // Handle click events on dropdown items
+        var dropdownItems = document.querySelectorAll('.dropdown-content a');
+        dropdownItems.forEach(function (item) {
+            item.addEventListener('click', function () {
+                // Add your custom logic here based on the clicked item
+                switch (item.textContent) {
+                    case 'Item 1':
+                        window.location.href = 'page1.html';
+                        break;
+
+                    case 'Item 2':
+                        window.location.href = 'page2.html';
+                        break;
+
+                    case 'Item 3':
+                        window.location.href = 'page3.html';
+                        break;
+
+                    // Add more cases as needed
+
+                    default:
+                        break;
+                }
+            });
+        });
+    });
+</script>
 
   <script>
     // Function to display blog posts on the page
@@ -128,7 +224,7 @@
 
     // Display initial blog posts on page load
     displayBlogPosts();
-  </script> -->
+  </script>
 
   <footer><p>copyright@2024</p></footer>
 </body>
